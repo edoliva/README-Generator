@@ -34,21 +34,46 @@ const questions = [
   },
   {
     type: 'input',
+    name: 'Tests',
+    message: 'REQUIRED: Enter test instructions.',
+  },
+  {
+    type: 'input',
+    name: 'githubUsername',
+    message: 'REQUIRED: Enter your GitHub username.',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'REQUIRED: Enter your email address.',
+  },
+  {
+    type: 'input',
+    name: 'Contributing',
+    message: 'REQUIRED: How can a user best contribute to this application?',
+  },
+  {
+    type: 'input',
     name: 'usageCoding',
     message: 'REQUIRED: How does the code work? What is the user experience like?',
   },
-  {
-    type: 'confirm',
-    name: 'screenshotTableOfContents',
-    message: 'REQUIRED: Will you be inserting any screenshots hosted by a public domain?',
-  }, 
-  {
-    type: 'list',
-    name: 'screenshotNumber',
-    message: 'REQUIRED: How many screenshots will you enter? (4 max)',
-    choices: [1, 2, 3, 4],
-    when:function(answer){return answer.screenshotTableOfContents}
-  },
+  //screenshot questions
+  // screenshot 1
+  {type: 'confirm', name: 'confrimScreenshot1', message: 'Will you be inserting any screenshots hosted by a public domain? You will be able to insert up to 4 screenshots.',}, 
+  {type: 'input', name: 'screenshotDescription1', message: 'Optional: What is this a screenshot of?', when:function(answer){return answer.confrimScreenshot1}},
+  {type: 'input', name: 'screenshotURL1', message: 'REQUIRED: Enter the full and complete screenhot URL:', when:function(answer){return answer.confrimScreenshot1}},
+  // screenshot 2
+  {type: 'confirm', name: 'confrimScreenshot2', message: 'Do you want to insert a 2nd screenshot hosted by a publuc domain?', when:function(answer){return answer.confrimScreenshot1}}, 
+  {type: 'input', name: 'screenshotDescription2', message: 'Optional: What is this a screenshot of?', when:function(answer){return answer.confrimScreenshot2}},
+  {type: 'input', name: 'screenshotURL2', message: 'REQUIRED: Enter the full and complete screenhot URL:', when:function(answer){return answer.confrimScreenshot2}},
+  // screenshot 3
+  {type: 'confirm', name: 'confrimScreenshot3', message: 'Do you want to insert a 3rd screenshot hosted by a publuc domain?', when:function(answer){return answer.confrimScreenshot2}}, 
+  {type: 'input', name: 'screenshotDescription3', message: 'Optional: What is this a screenshot of?', when:function(answer){return answer.confrimScreenshot3}},
+  {type: 'input', name: 'screenshotURL3', message: 'REQUIRED: Enter the full and complete screenhot URL:', when:function(answer){return answer.confrimScreenshot3}},
+  // screenshot 4
+  {type: 'confirm', name: 'confrimScreenshot4', message: 'Do you want to insert a 4th screenshot hosted by a publuc domain?', when:function(answer){return answer.confrimScreenshot3}}, 
+  {type: 'input', name: 'screenshotDescription4', message: 'Optional: What is this a screenshot of?', when:function(answer){return answer.confrimScreenshot4}},
+  {type: 'input', name: 'screenshotURL4', message: 'REQUIRED: Enter the full and complete screenhot URL:', when:function(answer){return answer.confrimScreenshot4}},
   {
     type: 'checkbox',
     message: '(Not required): Check off any of these commonly used technologies. You will be given an opportuity to manually enter others as well.',
@@ -83,7 +108,7 @@ const questions = [
   {
     type: 'input',
     name: 'licenseBadgeURL',
-    message: 'REQUIRED: Enter the full and complete license badge URL. You may enter multiple URLS:',
+    message: 'REQUIRED: Enter the full and complete license badge URL. You may enter multiple URLs:',
     when:function(answer){return answer.licenseTableOfContents}
   },
 
