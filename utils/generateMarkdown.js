@@ -16,8 +16,7 @@ function renderLicenseNotice(answer) {
   }  else {var licenseNoticeURL = "";}
   return licenseNoticeURL;
 };
-
-//Screenshot functions:
+// Screenshot functions:
 function renderScreenshotTableOfContents(answer) {
   console.log(answer.confrimScreenshot1);
   if (answer.confrimScreenshot1) {var screenshot = "- [Screenshots](#screenshots)";
@@ -29,12 +28,11 @@ function createScreenshotHeader(answer) {
   } else {var screenshotHeader = ""};
   return screenshotHeader;
 };
-
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(answer) {
   console.log(answer);
   return `${renderLicenseBadge(answer)}\n
-  # ${answer.fileName}
+# ${answer.fileName}
 
 ## Project Description
 ${answer.projectDescription}
@@ -83,7 +81,5 @@ ${renderLicenseNotice(answer)}\n
 Confidential and Proprietary. All Rights Reserved.
 `;
 }
-
-// ${renderLicenseBadge(answer.license)} 
 
 module.exports = generateMarkdown;
