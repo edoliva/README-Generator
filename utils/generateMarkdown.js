@@ -1,4 +1,4 @@
-//License badge function:
+// License badge function:
 function renderLicenseBadge(answer) {
   if (answer.licenseTableOfContents & answer.licenseType==="MIT") {var licenseBadgeURL = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
   }   else if (answer.licenseTableOfContents & answer.licenseType==="IBM") {var licenseBadgeURL = "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
@@ -7,7 +7,7 @@ function renderLicenseBadge(answer) {
   }  else {var licenseBadgeURL = "";}
   return licenseBadgeURL;
 };
-//License notice function:
+// License notice function:
 function renderLicenseNotice(answer) {
   if (answer.licenseTableOfContents & answer.licenseType==="MIT") {var licenseNoticeURL = "https://opensource.org/licenses/MIT";
   }   else if (answer.licenseTableOfContents & answer.licenseType==="IBM") {var licenseNoticeURL = "https://opensource.org/licenses/IPL-1.0";
@@ -17,6 +17,7 @@ function renderLicenseNotice(answer) {
   return licenseNoticeURL;
 };
 // Screenshot functions:
+// If the user does not want to include any screenshots, then it will be omitted from the table of contents
 function renderScreenshotTableOfContents(answer) {
   console.log(answer.confrimScreenshot1);
   if (answer.confrimScreenshot1) {var screenshot = "- [Screenshots](#screenshots)";

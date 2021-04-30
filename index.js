@@ -5,7 +5,7 @@ const generateMarkdown = require('./utils/generateMarkdown.js')
 
 // Array of questions for user input
 const questions = [ 
-  {type: 'input', name: 'fileName', message: 'REQUIRED: What is title of this Read Me?',},
+  {type: 'input', name: 'fileName', message: 'REQUIRED: What is the title of this Read Me?',},
   {type: 'input', name: 'projectDescription', message: 'REQUIRED: Enter a description of this project.',},
   {type: 'input', name: 'deployedLink', message: 'REQUIRED: Enter the deployed/live link for this project.',},
   {type: 'input', name: 'githubLink', message: 'REQUIRED: Enter the GitHub Repo link.',},
@@ -34,10 +34,11 @@ const questions = [
     {type: 'input', name: 'screenshotURL4', message: 'REQUIRED: Enter the full and complete screenhot URL:', when:function(answer){return answer.confrimScreenshot4}},
   // technology used in the applications creation
   { type: 'checkbox',
-    message: '(Not required): Check off any of these commonly used technologies. You will be given an opportuity to manually enter others as well.',
+    message: 'Check off any of these commonly used technologies. You will be given an opportuity to manually enter others as well.',
     name: 'technologyUsed',
     choices: ['HTML', ' CSS', ' JS', ' DOM', ' AJAX', ' node.js', ' Bootstrap', ' Foundation', ' Semantic UI', ' Angular', ' Vue.js', ' Ember.js', ' React', ' jQuery', ' D3.js', ' XML', ' RESR', ' GraphQL'],},
   {type: 'input', name: 'addtleTech', message: '(Not required): Is there any additional technology used that was not listed above? If not, press ENTER/RETURN.',},
+  // Credit and license information
   {type: 'input', name: 'publishYear', message: 'Enter the year this application was created.',},
   {type: 'input', name: 'creators', message: 'Enter your name/username, and the names/usernames of any direct collaborators.',},
   {type: 'input', name: 'credits', message: '(Credits) Enter the names of all people or organizations that helped make this application possible, other than direct collaborators.',},
@@ -59,6 +60,7 @@ function writeToFile(file, data) {
 
 // Function to initialize app
 function init() {
+  console.log("Let's make a README!")
     inquirer
     .prompt(
       questions
